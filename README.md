@@ -9,9 +9,9 @@ To build dropwizard into your own scala app, do these things (which you can foll
 (These directions assume sbt scaffolding already exists. If not, just `sbt` it.)
 
 1. Add plugins to sbt in [project/plugins/Plugins.scala](project/plugins/Plugins.scala)
-2. Use the plugins and require dropwizard in (project/build/MyProject.scala)[project/build/MyProject.scala]
+2. Use the plugins and require dropwizard in [project/build/MyProject.scala](project/build/MyProject.scala)
 3. Run `sbt update` - this will download project dependencies.
-3. Create a Service class (see src/main/scala/TinyExampleService.scala). Define name and configure.
+3. Create a Service class (see [src/main/scala/TinyExampleService.scala](src/main/scala/TinyExampleService.scala)). Define name and configure.
 4. Create a configuration file. example.conf is from the template in dropwizard-example.
 
 Build with `sbt compile`. If you add the `server` task used in TinyExampleProject you can start with `sbt server`.
