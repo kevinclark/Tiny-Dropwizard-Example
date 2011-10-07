@@ -3,16 +3,21 @@
 This project exists to show the minimum work required to setup a dropwizard service.
 This frees up codahale/dropwizard-example to show off features you won't always need.
 
-
 To build dropwizard into your own scala app, do these things (which you can follow along with in commits):
 
-(These directions assume sbt scaffolding already exists. If not, just `sbt` it.)
+I've moved the example to maven because that's what I'm using now.
 
-1. Add plugins to sbt in [project/plugins/Plugins.scala](project/plugins/Plugins.scala)
-2. Use the plugins and require dropwizard in [project/build/MyProject.scala](project/build/TinyExample.scala)
-3. Run `sbt update` - this will download project dependencies.
-3. Create a Service class (see [src/main/scala/TinyExampleService.scala](src/main/scala/TinyExampleService.scala)). Define name and configure.
-4. Create a configuration file. example.conf is from the template in dropwizard-example.
+1. Create a Service class (see [src/main/scala/TinyExampleService.scala](src/main/scala/TinyExampleService.scala)). Define name and configure.
+2. Create a configuration file. example.conf is from the template in dropwizard-example.
+3. Drop a pom like the one in the toplevel directory into your project
+   root. Update names and add dependencies if needed. Though there
+   aren't tests in the example, I've left configuration for Surefire at
+   the bottom of the pom that you can probably just take wholesale. I'm
+   also using maven-shade for creating a single executable jar, and
+   you'll need to update the main class (TinyExampleService in this case)
+   for your application.
 
-Build with `sbt compile`. If you add the `server` task used in TinyExampleProject you can start with `sbt server`.
-You can also run `sbt assembly` and run the jar by hand.
+Run with `mvn scala:run`. See [the maven scala plugin](http://scala-tools.org/mvnsites/maven-scala-plugin/) for more goodies (including mvn scala:console).
+
+`mvn package` will create a single jar.
+
